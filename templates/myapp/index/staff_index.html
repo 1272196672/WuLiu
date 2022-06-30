@@ -1,0 +1,31 @@
+{% extends 'myapp/base_staffbackstage.html' %}
+
+{% block section %}
+    <div style="margin-left: 100px">
+        <span style="font-family: bold;line-height: 100px;font-size: 100px"><b>员工{{ username }}</b></span><br>
+    </div>
+    <div style="display: inline-block;padding: 20px;margin: 20px">
+        <div class="layui-card manager_card layui-anim layui-anim-up" style="margin-left: 50px">
+            <div class="layui-card-header"><b><span style="font-size: 15px">tips</span></b></div>
+            <div class="layui-card-body">
+                <span style="font-size: 15px">欢迎您，{{ username }}</span>
+                <br>
+                <span style="font-size: 15px">在这里，您可以查看您当前的物流信息</span>
+                <br>
+                <span style="font-size: 15px">或者，浏览您曾经的订单</span>
+                <br>
+                <i class="layui-icon layui-icon-face-smile layui-anim layui-anim-rotate layui-anim-loop"
+                   style="font-size: 20px; color: #1E9FFF;"></i>
+                <br>
+                <span style="font-size: 15px">祝福您拥有美好的一天！</span>
+            </div>
+        </div>
+    </div>
+    <div style="margin-left: 100px">
+        <span style="font-family: bold;line-height: 100px;font-size: 183px;">Welcome</span><br>
+    </div>
+{% endblock %}
+
+{% block layui-this员工首页 %}
+    layui-this
+{% endblock %}

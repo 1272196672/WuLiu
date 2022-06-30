@@ -1,0 +1,83 @@
+{% extends 'myapp/base_managerbackstage.html' %}
+
+{% block layui-nav-itemed服务中心 %}
+    layui-nav-itemed
+{% endblock %}
+
+{% block layui-this生成订单 %}
+    layui-this
+{% endblock %}
+
+{% block section %}
+    <div style="margin: 30px">
+        <span style="font-family: bold;line-height: 40px;font-size: 80px"><b>Create order</b></span><br>
+    </div>
+    <div class="layui-card layui-anim layui-anim-downbit" style="width: 800px">
+        <div class="layui-card-header"><strong>添加商品</strong></div>
+        <div class="layui-card-body">
+            <form class="layui-form layui-form-pane" action="{% url 'm_create_order_op' %}" method="get">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">商品</label>
+                    <div class="layui-input-inline">
+                        <select name="commodity_id" lay-verify="required">
+                            <option value="">请选择商品</option>
+                            {% for goods in goods_list %}
+                                <option value="{{ goods.commodity_id }}">{{ goods.commodity_name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">运输车辆</label>
+                    <div class="layui-input-inline">
+                        <select name="car_number" lay-verify="required">
+                            <option value="">请选择车辆</option>
+                            {% for car in car_list %}
+                                <option value="{{ car.car_number }}">{{ car.car_number }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">发货仓库</label>
+                    <div class="layui-input-inline">
+                        <select name="start_place" lay-verify="required">
+                            <option value="">请选择仓库</option>
+                            {% for storehouse in storehouse_list %}
+                                <option value="{{ storehouse.start_place }}">{{ storehouse.start_place }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">目的地</label>
+                    <div class="layui-input-inline">
+                        <select name="end_place" lay-verify="required">
+                            <option value="">请选择目的地</option>
+                            <option value="重庆">重庆</option>
+                            <option value="成都">成都</option>
+                            <option value="深圳">深圳</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">运输员</label>
+                    <div class="layui-input-inline">
+                        <select name="phone_number" lay-verify="required">
+                            <option value="">请选择运输员</option>
+                            {% for staff in staff_list %}
+                                <option value="{{ staff.phone_number }}">{{ staff.username }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <button class="layui-btn" lay-submit="" lay-filter="demo2" style="margin-right: 50%">提交</button>
+                </div>
+            </form>
+        <p style="font-size: medium;color: mediumseagreen">{{ notification }}</p>
+        </div>
+    </div>
+    </div>
+
+{% endblock %}

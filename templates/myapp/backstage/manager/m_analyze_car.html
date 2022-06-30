@@ -1,0 +1,40 @@
+{% extends 'myapp/base_managerbackstage.html' %}
+
+{% block layui-nav-itemed服务中心 %}
+    layui-nav-itemed
+{% endblock %}
+
+{% block layui-this车辆冷柜分析 %}
+    layui-this
+{% endblock %}
+
+{% block section %}
+    <div style="margin: 30px">
+        <span style="font-family: bold;line-height: 40px;font-size: 80px"><b>Vehicle analysis</b></span><br>
+    </div>
+    <div class="layui-container layui-row layui-anim layui-anim-downbit">
+        <div class="layui-col-md11 site-content">
+            <table class="layui-table" style="margin-left: 150px;">
+                <colgroup>
+                    <col width="150">
+                    <col width="200">
+                    <col>
+                </colgroup>
+                <thead>
+                <tr>
+                    <th><strong>车牌号</strong></th>
+                    <th><strong>异常率</strong></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for car, perSave in mix_list %}
+                    <tr>
+                        <td>{{ car.car_number }}</td>
+                        <td>{{ perSave }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

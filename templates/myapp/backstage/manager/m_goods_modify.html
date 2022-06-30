@@ -1,0 +1,57 @@
+{% extends 'myapp/base_managerbackstage.html' %}
+
+{% block layui-nav-itemed服务中心 %}
+    layui-nav-itemed
+{% endblock %}
+
+{% block layui-this商品管理 %}
+    layui-this
+{% endblock %}
+
+{% block section %}
+    <div style="margin: 30px">
+        <span style="font-family: bold;line-height: 40px;font-size: 80px"><b>Modify commodity</b></span><br>
+    </div>
+    <div class="layui-card layui-anim layui-anim-downbit" style="width: 800px">
+        <div class="layui-card-header"><strong>添加商品</strong></div>
+        <div class="layui-card-body">
+            <form class="layui-form layui-form-pane" action="{% url 'm_goods_modify_op' %}" method="get">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">商品name</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="goods_name" lay-verify="required" value="{{ goods.commodity_name }}"
+                               placeholder="请输入" autocomplete="off"
+                               class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">商品id</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="goods_id" lay-verify="required" value="{{ goods.commodity_id }}"
+                               placeholder="请输入" autocomplete="off"
+                               class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">最佳温度</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="goods_temperature" lay-verify="required"
+                               value="{{ goods.limit_temperature }}" placeholder="请输入" autocomplete="off"
+                               class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">最佳湿度</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="goods_humidity" lay-verify="required"
+                               value="{{ goods.limit_humidity }}" placeholder="请输入" autocomplete="off"
+                               class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <button class="layui-btn" lay-submit="" lay-filter="demo2" style="margin-right: 50%">提交</button>
+                </div>
+            </form>
+        </div>
+    </div></div>
+{% endblock %}

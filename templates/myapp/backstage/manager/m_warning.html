@@ -1,0 +1,38 @@
+{% extends 'myapp/base_managerbackstage.html' %}
+
+{% block layui-nav-itemed订单追踪 %}
+    layui-nav-itemed
+{% endblock %}
+
+{% block layui-this报警管理 %}
+    layui-this
+{% endblock %}
+
+{% block section %}
+    <div style="margin: 30px">
+        <span style="font-family: bold;line-height: 40px;font-size: 80px"><b>Alarm management</b></span><br>
+    </div>
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-md6" style="left: 400px">
+            {% for order_list, goods_list, time_list, type in mix_list %}
+                {% if type != "正常" %}
+                    <div class="layui-card layui-anim layui-anim-downbit">
+                        <div class="layui-card-header"><strong>当前订单异常警报</strong></div>
+                        <div class="layui-card-body">
+                            订单号：{{ order_list.id }}<br>
+                            商品类型：{{ goods_list.commodity_name }}<br>
+                            运输员联系方式：{{ order_list.phone_number }}<br>
+                            运输车辆：{{ order_list.car_number }}<br>
+                            出发地：{{ order_list.start_place }} 目的地：{{ order_list.location }}<br>
+                            <span style="color:indianred;">异常发生时间：{{ time_list.realtime }}</span><br>
+                            <span style="color:indianred;">异常类型：{{ type }}</span><br>
+                            <span style="color:indianred;">异常发生位置：{{ order_list.location }}</span><br>
+                            <span style="color:dodgerblue;">当前温度：{{ time_list.temperature }} 当前湿度：{{ time_list.humidity }}</span><br>
+                            <span style="color:dodgerblue;">最佳温度：{{ goods_list.limit_temperature }} 最佳湿度：{{ goods_list.limit_humidity }}</span><br>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

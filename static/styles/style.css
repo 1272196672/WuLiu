@@ -1,0 +1,23 @@
+#head{
+    margin: 50px;
+}
+
+.foot{
+    margin: 20px;
+    text-align: right;
+    font-size: smaller;
+    color: gray;
+}
+
+.layui-form{
+    margin-left: 35%;
+}
+
+.circle_img{
+    border-radius: 40px;
+    box-shadow: gray 10px 10px 10px;
+}
+
+.manager_card{
+    box-shadow: black 10px 10px 5px;
+}

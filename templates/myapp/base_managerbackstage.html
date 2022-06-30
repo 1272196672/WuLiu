@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/layui/css/layui.css">
+    <link rel="stylesheet" href="/static/styles/style.css">
+    <title>智慧物流</title>
+    <base href="/">
+</head>
+<body style="background-color: #e2e2e2;background-repeat: no-repeat;background-size: 100% 100%;background-attachment: fixed;"
+      background="/static/img/httpsimg.zcool.cncommunity016af25cc91994a801208f8b47f9d1.jpg">
+
+<nav>
+    <ul class="layui-nav layui-nav-tree layui-nav-side" lay-filter="test">
+        <!-- 侧边导航: <ul class="layui-nav layui-nav-tree layui-nav-side"> -->
+
+        <li class="layui-nav-item {% block layui-this管理员首页 %}{% endblock %}"><a href="{% url 'manager_index' %}">首页</a>
+        </li>
+
+        <li class="layui-nav-item {% block layui-nav-itemed订单追踪 %}{% endblock %}">
+            <a href="javascript:;">订单追踪</a>
+            <dl class="layui-nav-child">
+                <dd class="{% block layui-this实时监控 %}{% endblock %}"><a href="{% url 'm_monitor' %}">实时监控</a></dd>
+                <dd class="{% block layui-this报警管理 %}{% endblock %}"><a href="{% url 'm_warning' %}">报警管理</a></dd>
+                <dd class="{% block layui-this历史报警管理 %}{% endblock %}"><a href="{% url 'm_warning_history' %}">历史报警</a></dd>
+                <dd class="{% block layui-this历史订单 %}{% endblock %}"><a href="{% url 'm_history' %}">历史订单</a></dd>
+            </dl>
+        </li>
+
+        <li class="layui-nav-item {% block layui-nav-itemed服务中心 %}{% endblock %}">
+            <a href="javascript:;">服务中心</a>
+            <dl class="layui-nav-child">
+                <dd class="{% block layui-this生成订单 %}{% endblock %}"><a href="{% url 'm_create_order' %}">生成订单</a></dd>
+                <dd class="{% block layui-this车辆冷柜分析 %}{% endblock %}"><a href="{% url 'm_analyze_car' %}">车辆冷柜分析</a>
+                </dd>
+                <dd class="{% block layui-this商品管理 %}{% endblock %}"><a href="{% url 'm_goods' %}">商品管理</a></dd>
+                <dd class="{% block layui-this仓库管理 %}{% endblock %}"><a href="{% url 'm_storehouse' %}">仓库管理</a></dd>
+            </dl>
+        </li>
+
+        <li class="layui-nav-item"><a href="{% url 'index' %}">登出</a></li>
+    </ul>
+</nav>
+
+<header id="head">
+
+</header>
+
+<section>
+    <center>
+        {% block section %}
+            section
+        {% endblock %}
+    </center>
+</section>
+
+<hr>
+
+<footer>
+    <div style="margin-top: 20px">
+        <p class="foot">指导老师：佟国香 制作人员：潘孝安 林子翔 伍科运 联系邮箱：1272196672@qq.com</p>
+    </div>
+</footer>
+
+<script src="/static/layui/layui.js"></script>
+<script src="/static/js/actions.js"></script>
+</body>
+</html>

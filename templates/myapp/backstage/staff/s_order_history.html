@@ -1,0 +1,107 @@
+{% extends 'myapp/base_staffbackstage.html' %}
+
+{% block layui-nav-itemed订单中心 %}
+    layui-nav-itemed
+{% endblock %}
+
+{% block layui-this历史订单 %}
+    layui-this
+{% endblock %}
+
+{% block section %}
+    <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-md6" style="left: 400px">
+
+            {% for order, th, type in mix_list %}
+                <div class="layui-card layui-anim layui-anim-downbit">
+                    <div class="layui-card-header"><strong>已完成订单</strong></div>
+                    <div class="layui-card-body">
+                        订单号：{{ order.id }}<br>
+                        运输员电话：{{ order.phone_number }}<br>
+                        商品id：{{ order.commodity_id }}<br>
+                        送达时间：{{ order.end_time }}<br>
+                        订单状态：<span style="color: #FF5722">{{ type }}</span><br>
+                        运输车辆：{{ order.car_number }}<br>
+                        运输地点：{{ order.location }}<br>
+                        <hr>
+                        图像<br>
+                        温度丨湿度<br>
+                        <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+                        <div id="main{{ order.id }}" style="width:400px;height:200px;"></div>
+                        <div id="main{{ order.id }}1" style="width:400px;height:200px;"></div>
+                        <script type="text/javascript">
+                            // 基于准备好的dom，初始化echarts实例
+                            var myChart = echarts.init(document.getElementById('main{{ order.id }}'));
+                            // 指定图表的配置项和数据
+                            myChart.setOption({
+                                title: {
+                                    text: '温度'
+                                },
+                                tooltip: {
+                                    trigger: 'axis'
+                                },
+                                // 工具箱-保存图片
+                                toolbox: {
+                                    feature: {
+                                        saveAsImage: {
+                                            show: true
+                                        }
+                                    }
+                                },
+                                // x轴
+                                xAxis: {
+                                    data: ["前1h", "{{ th.realtime }}", "后1h"]
+                                },
+                                // y轴自动生成
+                                yAxis: {},
+                                series: [
+                                    {
+                                        type: 'line',       //折线图
+                                        // 图表数据
+                                        data: [{{ th.temperature }} + 10, {{ th.temperature }}, {{ th.temperature }} - 20]
+                                    }
+                                ]
+                            });
+                        </script>
+                        <script type="text/javascript">
+                            // 基于准备好的dom，初始化echarts实例
+                            var myChart = echarts.init(document.getElementById('main{{ order.id }}1'));
+                            // 指定图表的配置项和数据
+                            myChart.setOption({
+                                title: {
+                                    text: '湿度'
+                                },
+                                tooltip: {
+                                    trigger: 'axis'
+                                },
+                                // 工具箱-保存图片
+                                toolbox: {
+                                    feature: {
+                                        saveAsImage: {
+                                            show: true
+                                        }
+                                    }
+                                },
+                                // x轴
+                                xAxis: {
+                                    data: ["前1h", "{{ th.realtime }}", "后1h"]
+                                },
+                                // y轴自动生成
+                                yAxis: {},
+                                series: [
+                                    {
+                                        type: 'line',       //折线图
+                                        // 图表数据
+                                        data: [{{ th.humidity }} +20, {{ th.humidity }}, {{ th.humidity }} -10]
+                                    }
+                                ]
+                            });
+                        </script>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+{% endblock %}

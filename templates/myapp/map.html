@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Awesome-pyecharts</title>
+            <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
+        <script type="text/javascript" src="https://assets.pyecharts.org/assets/bmap.min.js"></script>
+        <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=wyysZdPfv503WDTI2nnuMyMsk6BGdrG9"></script>
+        <script type="text/javascript" src="https://api.map.baidu.com/getscript?v=2.0&ak=wyysZdPfv503WDTI2nnuMyMsk6BGdrG9"></script>
+
+</head>
+<body>
+    <div id="83ab595ae5aa4db982ced511e57d1dfb" class="chart-container" style="width:1400px; height:800px;"></div>
+    <script>
+        var chart_83ab595ae5aa4db982ced511e57d1dfb = echarts.init(
+            document.getElementById('83ab595ae5aa4db982ced511e57d1dfb'), 'white', {renderer: 'canvas'});
+        var option_83ab595ae5aa4db982ced511e57d1dfb = {
+    "animation": true,
+    "animationThreshold": 2000,
+    "animationDuration": 1000,
+    "animationEasing": "cubicOut",
+    "animationDelay": 0,
+    "animationDurationUpdate": 300,
+    "animationEasingUpdate": "cubicOut",
+    "animationDelayUpdate": 0,
+    "color": [
+        "#c23531",
+        "#2f4554",
+        "#61a0a8",
+        "#d48265",
+        "#749f83",
+        "#ca8622",
+        "#bda29a",
+        "#6e7074",
+        "#546570",
+        "#c4ccd3",
+        "#f05b72",
+        "#ef5b9c",
+        "#f47920",
+        "#905a3d",
+        "#fab27b",
+        "#2a5caa",
+        "#444693",
+        "#726930",
+        "#b2d235",
+        "#6d8346",
+        "#ac6767",
+        "#1d953f",
+        "#6950a1",
+        "#918597"
+    ],
+    "series": [
+        {
+            "type": "effectScatter",
+            "coordinateSystem": "bmap",
+            "showEffectOn": "render",
+            "rippleEffect": {
+                "show": true,
+                "brushType": "stroke",
+                "scale": 2.5,
+                "period": 4
+            },
+            "symbolSize": 5,
+            "data": [
+                {
+                    "name": "\u6df1\u5733",
+                    "value": [
+                        114.06455183658751,
+                        22.548456637984177,
+                        "\u4f60\u7684\u4f4d\u7f6e"
+                    ]
+                }
+            ],
+            "label": {
+                "show": true,
+                "position": "top",
+                "margin": 8,
+                "formatter": function(params) {                    if ('value' in params.data) {                        return params.data.value[2];                    }                }
+            },
+            "itemStyle": {}
+        }
+    ],
+    "legend": [
+        {
+            "data": [
+                ""
+            ],
+            "selected": {
+                "": true
+            },
+            "show": true,
+            "padding": 5,
+            "itemGap": 10,
+            "itemWidth": 25,
+            "itemHeight": 14
+        }
+    ],
+    "tooltip": {
+        "show": true,
+        "trigger": "item",
+        "triggerOn": "mousemove|click",
+        "axisPointer": {
+            "type": "line"
+        },
+        "showContent": true,
+        "alwaysShowContent": false,
+        "showDelay": 0,
+        "hideDelay": 100,
+        "formatter": function(params) {                    if ('value' in params.data) {                        return params.data.name + '<br>' + params.data.value[2];                    }                },
+        "textStyle": {
+            "fontSize": 14
+        },
+        "borderWidth": 0,
+        "padding": 5
+    },
+    "title": [
+        {
+            "text": "\u7269\u6d41",
+            "left": "center",
+            "padding": 5,
+            "itemGap": 10,
+            "textStyle": {
+                "color": "#0C0C0C"
+            }
+        }
+    ],
+    "bmap": {
+        "center": [
+            114.06455183658751,
+            22.548456637984177
+        ],
+        "zoom": 16,
+        "roam": true
+    }
+};
+        chart_83ab595ae5aa4db982ced511e57d1dfb.setOption(option_83ab595ae5aa4db982ced511e57d1dfb);
+            var bmap = chart_83ab595ae5aa4db982ced511e57d1dfb.getModel().getComponent('bmap').getBMap();
+    </script>
+</body>
+</html>

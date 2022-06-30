@@ -1,0 +1,35 @@
+{% extends 'myapp/base_managerbackstage.html' %}
+
+{% block layui-nav-itemed服务中心 %}
+    layui-nav-itemed
+{% endblock %}
+
+{% block layui-this仓库管理 %}
+    layui-this
+{% endblock %}
+
+{% block section %}
+    <div style="margin: 30px">
+        <span style="font-family: bold;line-height: 40px;font-size: 80px"><b>Add storehouse</b></span><br>
+    </div>
+    <div class="layui-container layui-row layui-anim layui-anim-downbit">
+        <div class="layui-col-md10 site-content">
+            <form class="layui-form layui-form-pane" action="{% url 'm_storehouse' %}" method="get">
+                <label class="layui-form-label"><strong>当前仓库：</strong></label>
+                {% for storage in storage_list %}
+                    <label class="layui-form-label">{{ storage.start_place }}</label>
+                {% endfor %}
+                <div class="layui-form-item" style="padding-top: 50px">
+                    <label class="layui-form-label"><strong>新增仓库：</strong></label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="place" lay-verify="required" placeholder="请输入" autocomplete="off"
+                               class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <button class="layui-btn" lay-submit="" lay-filter="demo2" style="margin-right: 50%">提交</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

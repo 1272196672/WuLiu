@@ -1,0 +1,50 @@
+{% extends 'myapp/base_managerbackstage.html' %}
+
+{% block layui-nav-itemed服务中心 %}
+    layui-nav-itemed
+{% endblock %}
+
+{% block layui-this商品管理 %}
+    layui-this
+{% endblock %}
+
+{% block section %}
+    <div style="margin: 30px">
+        <span style="font-family: bold;line-height: 40px;font-size: 80px"><b>Commodity</b></span><br>
+    </div>
+    <div class="layui-container layui-row layui-anim layui-anim-downbit">
+        <div class="layui-col-md11 site-content">
+            <table class="layui-table" style="margin-left: 150px;">
+                <colgroup>
+                    <col width="150">
+                    <col width="200">
+                    <col>
+                </colgroup>
+                <thead>
+                <tr>
+                    <th><strong>商品名称</strong></th>
+                    <th><strong>商品id</strong></th>
+                    <th><strong>温度上限</strong></th>
+                    <th><strong>湿度上限</strong></th>
+                    <th><strong>操作</strong></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for goods in goods_list %}
+                    <tr>
+                        <td>{{ goods.commodity_name }}</td>
+                        <td>{{ goods.commodity_id }}</td>
+                        <td>{{ goods.limit_temperature }}</td>
+                        <td>{{ goods.limit_humidity }}</td>
+                        <td><a href="{% url 'm_goods_add' %}"><span style="color: grey">增添</span></a>
+                            <a href="{% url 'm_goods_modify' goods.commodity_id %}"><span style="color: grey">修改</span></a>
+                            <a href="{% url 'm_goods_del' goods.commodity_id %}"><span
+                                    style="color: firebrick">删除</span></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
